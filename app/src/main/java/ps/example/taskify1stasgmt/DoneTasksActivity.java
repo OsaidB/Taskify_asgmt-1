@@ -31,6 +31,11 @@ public class DoneTasksActivity extends AppCompatActivity implements PopupMenu.On
 
     static int global_int;
 
+
+//    private static final int FIRST_ID=Menu.FIRST;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +46,7 @@ public class DoneTasksActivity extends AppCompatActivity implements PopupMenu.On
 
         loadDoneData();
 
+//        invalidateOptionsMenu();
 
         BottomNavigationView bv = findViewById(R.id.botView);
         bv.setSelectedItemId(R.id.done);
@@ -71,7 +77,7 @@ public class DoneTasksActivity extends AppCompatActivity implements PopupMenu.On
     }
     @Override
     protected void onStart() {
-
+//        invalidateOptionsMenu();
         loadDoneData();
 
         //creating the arrayList of tasks, and making the needed ArrayAdapter to contain it
@@ -171,26 +177,52 @@ public class DoneTasksActivity extends AppCompatActivity implements PopupMenu.On
 //        Context con=getApplicationContext();
         PopupMenu popUp = new PopupMenu(this, view);
         popUp.setOnMenuItemClickListener(this);
-        popUp.inflate(R.menu.popup_menu);
+        popUp.inflate(R.menu.popup_menu_done);
 //        popUp.disable(done);
         popUp.show();
     }
 
-    @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        MenuItem item = menu.findItem(R.id.Done);
-        item.setEnabled(false);
-//        if (menu.) {
-//            menu.getItem(1).setEnabled(false);
-//            // You can also use something like:
-//            // menu.findItem(R.id.example_foobar).setEnabled(false);
-//        }
+//    @Override
+//    public boolean onPrepareOptionsMenu(Menu menu) {
+//
+////        menu.getMenu().removeItem(FIRST_ID);
+//
+//
+////        menu.removeItem(menu.FIRST);
+//
+////
+////        MenuItem item = menu.findItem(R.id.Done);
+////
+////            item.setVisible(false);
+//
+//
+//        super.onPrepareOptionsMenu(menu);
+//        menu.findItem(R.id.Done).setVisible(false);
+////        menu.findItem(R.id.menuItemToRight).setVisible(false);
 //        return true;
 //
 //
-//        menu.getItem(R.id.Done).setEnabled(false);
-        return super.onPrepareOptionsMenu(menu);
-    }
+////        MenuItem item = menu.findItem(R.id.Done);
+////        item.setEnabled(false);
+//////        if (menu.) {
+////            menu.getItem(1).setEnabled(false);
+////            // You can also use something like:
+////            // menu.findItem(R.id.example_foobar).setEnabled(false);
+////        }
+////        return true;
+////
+////
+////        menu.getItem(R.id.Done).setEnabled(false);
+////        return super.onPrepareOptionsMenu(menu);
+//    }
+
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        MenuItem item = menu.findItem(R.id.Done);
+//
+//        item.setVisible(false);
+//        return super.onCreateOptionsMenu(menu);
+//    }
 
     @Override
     public boolean onMenuItemClick(MenuItem item) {
@@ -202,26 +234,27 @@ public class DoneTasksActivity extends AppCompatActivity implements PopupMenu.On
 //            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
 
         int itemId = item.getItemId();
-        if (itemId == R.id.Done) {
-
-//            Intent intent = new Intent(this, DoneTasksActivity.class);
-//            intent.putExtra(DONE_TASK, DueTasks.get(global_int));
-//            startActivity(intent);
+//        if (itemId == R.id.Done) {
 //
-//
-////            //adding the task to the second listView (Done listView)
-////            DoneTasksActivity.DoneTasksAdapter.add(tasks.get(global_int));
-////            DoneTasksActivity.DoneTasksAdapter.notifyDataSetChanged();
-//
-//            //removing the task from the first listView (Due listView)
-//            DueTasks.remove(global_int);
-//            DueTasksAdapter.notifyDataSetChanged();
-//
-//
-//            Toast.makeText(con, "Done clicked", Toast.LENGTH_SHORT).show();
-            //do nothing
-            return true;
-        } else if (itemId == R.id.Delete) {
+////            Intent intent = new Intent(this, DoneTasksActivity.class);
+////            intent.putExtra(DONE_TASK, DueTasks.get(global_int));
+////            startActivity(intent);
+////
+////
+//////            //adding the task to the second listView (Done listView)
+//////            DoneTasksActivity.DoneTasksAdapter.add(tasks.get(global_int));
+//////            DoneTasksActivity.DoneTasksAdapter.notifyDataSetChanged();
+////
+////            //removing the task from the first listView (Due listView)
+////            DueTasks.remove(global_int);
+////            DueTasksAdapter.notifyDataSetChanged();
+////
+////
+////            Toast.makeText(con, "Done clicked", Toast.LENGTH_SHORT).show();
+//            //do nothing
+//            return true;
+//        } else
+            if (itemId == R.id.Delete) {
             //                        Toast.makeText(con, "Delete clicked", Toast.LENGTH_SHORT).show();
 
             Toast.makeText(con, "Item Removed", Toast.LENGTH_LONG).show();//important
